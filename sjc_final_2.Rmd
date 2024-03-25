@@ -1,0 +1,61 @@
+---
+title: 'Final Project 2: R Markdown'
+author: "Seana Cleary"
+date: "`r Sys.Date()`"
+output: html_document
+params: 
+  production: TRUE
+---
+
+```{r, set-chunk-opts, echo = FALSE, warning=FALSE, eval = params$production}
+library(knitr)
+opts_chunk$set(
+  echo = FALSE, warning = FALSE, message = FALSE
+)
+```
+
+```{r, here-i-am}
+here::i_am(
+  "sjc_final_2.Rmd"
+)
+
+data <- readRDS(
+  file=here::here("output/data_clean.rds")
+)
+```
+
+# Introduction
+
+### H1N1 Data Set
+
+This data set was sourced from a Kaggle data set titled "H1N1 and Seasonal Flu Vaccines." The data was manipulated to include only relevant variables and underwent multiple imputation to fill in missing values. The data set was created from responses to the National 2009 H1N1 Flu Survey that was administered over the phone. Variables used in this analysis include H1N1 vaccination status, knowledge of H1N1, disease mitigation behaviors, and demographic information. There are a total of `r nrow(data)` participants.
+
+### Analysis plan
+
+For this analysis, I will be describing my study population's characteristics in a Table 1. I will then assess the relationship between H1N1 vaccination status and disease mitigation behaviors through a Chi-square test. These associations will be displayed graphically through a correlation plot that visualizes the Pearson residuals. This will give viewers an indication of the independence or dependence of vaccination status and specific behaviors. 
+
+# Analysis
+
+### Table 1
+
+```{r, table-one}
+table_1 <- readRDS(
+  file=here::here("output/table_one.rds")
+)
+table_1
+```
+
+Table 1 describes the characteristics of the study population. Most participants are white, female, over 45 years old, and have at least some college education. Most are employed and making between the poverty level and $75,000. A majority are married, own their home, and live in a metropolitan statistical area. The distribution in these demographic variables generally do not vary much between vaccinated and unvaccinated individuals, though differences of up to 7% between groups can be seen.
+
+### Relationship between behaviors and vaccination status
+
+```{r, descriptive}
+#| fig.align = "center",
+#| out.width = "600px"
+
+knitr::include_graphics(
+  here::here("output/figure.jpeg")
+)
+```
+
+The plot above shows the Pearson residuals of the Chi-square for association between vaccination status and disease mitigation behaviors. The larger the circle, the higher the amount that cell contributed to the difference between expected and observed values. Blue dots indicate positive residuals, indicating a positive association between the corresponding rows and columns. Red dots indicate negative residuals, indicating a negative correlation between rows and columns. In this case, being vaccinated is associated with buying a face mask, while being unvaccinated is associated with *not* buying face masks. 
