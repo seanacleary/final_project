@@ -18,3 +18,8 @@ output/figure.jpeg: code/02_make_figure.R output/data_clean.rds
 # clean data
 clean:
 	rm -f output/*.rds && rm -f output/*.jpeg && rm -f *.html
+	
+#install
+.PHONY: install
+install:
+	Rscript -e "renv::restore(prompt=FALSE)"

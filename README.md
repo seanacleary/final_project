@@ -2,6 +2,7 @@
 
 - download project files on a local computer and save to desired location
 - set the finalproject folder as the project directory in the bash terminal (cd command)
+- to synchronize package repository, type "make install" into the terminal
 - type "make" into the terminal to generate the sjc_final_2.html product
 
 # CODE DESCRIPTIONS
