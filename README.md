@@ -2,7 +2,7 @@
 
 - fork GitHub repository onto your desired location on your computer
 - run `make finalproject_tag` in the terminal to build Docker image
-- run `make final_report/sjc_final_2.html` in the terminal to run containerized code
+- run `make final_report/sjc_final_2.html` in the terminal to run containerized code and generate the report
 
 # CODE DESCRIPTIONS
 
