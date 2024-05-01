@@ -1,9 +1,8 @@
 # FINAL REPORT GENERATION
 
-- download project files on a local computer and save to desired location
-- set the finalproject folder as the project directory in the bash terminal (cd command)
-- to synchronize package repository, type "make install" into the terminal
-- type "make" into the terminal to generate the sjc_final_2.html product
+- fork GitHub repository onto your desired location on your computer
+- run `make finalproject_tag` in the terminal to build Docker image
+- run `make final_report/sjc_final_2.html` in the terminal to run containerized code
 
 # CODE DESCRIPTIONS
 
